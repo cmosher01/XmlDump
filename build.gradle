@@ -1,0 +1,18 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+group = 'nu.mine.mosher.xml'
+version = '1.0.0-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_1_9
+mainClassName = "nu.mine.mosher.xml.XmlDump"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'xerces', name: 'xercesImpl', version: 'latest.release', {
+        exclude group: 'xml-apis'
+    }
+    implementation group: 'org.apache.commons', name: 'commons-csv', version: 'latest.release'
+}
