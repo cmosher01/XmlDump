@@ -43,7 +43,9 @@ public class XmlDump {
         f.setFeature("http://apache.org/xml/features/standard-uri-conformant", true);
         f.setFeature("http://xml.org/sax/features/namespace-prefixes", true);
         f.setFeature("http://xml.org/sax/features/xmlns-uris", true);
+        f.setFeature("http://xml.org/sax/features/validation", true);
         f.setNamespaceAware(true);
+        f.setValidating(true);
         return f;
     }
 
