@@ -37,7 +37,6 @@ public class XmlDump {
 
     private static SAXParserFactory createSaxParserFactory() throws SAXException, ParserConfigurationException {
         final SAXParserFactory f = SAXParserFactory.newInstance(XmlDump.classSaxParserFactory.getName(), XmlDump.loader);
-//        f.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
         f.setFeature("http://apache.org/xml/features/scanner/notify-char-refs", true);
         f.setFeature("http://apache.org/xml/features/scanner/notify-builtin-refs", true);
         f.setFeature("http://apache.org/xml/features/standard-uri-conformant", true);

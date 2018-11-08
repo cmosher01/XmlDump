@@ -1,6 +1,7 @@
 package nu.mine.mosher.xml;
 
 import org.apache.commons.csv.CSVPrinter;
+import org.owasp.encoder.Encode;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.Locator;
@@ -78,11 +79,11 @@ public class Dumper implements ContentHandler {
         w("WHITE", length, filter(new String(ch, start, length)));
     }
 
-    private String filter(String s) {
-        if (s.trim().isEmpty()) {
-            return "WHITESPACE";
-        }
-        return s;
+    private static String filter(String s) {
+        return Encode.forXml(s)
+            .replace("\t", "&x09;")
+            .replace("\n", "&x0a;")
+            .replace("\r", "&x0d");
     }
 
     @Override
