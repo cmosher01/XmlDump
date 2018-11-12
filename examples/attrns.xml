@@ -1,0 +1,55 @@
+<?xml version="1.1"?>
+<!DOCTYPE x [
+<!ELEMENT x (bar*,foo:bar*)>
+<!ELEMENT bar EMPTY>
+<!ATTLIST bar xmlns:foo CDATA #IMPLIED>
+<!ATTLIST bar xmlns CDATA #IMPLIED>
+<!ATTLIST bar foo:baz CDATA #IMPLIED>
+<!ATTLIST bar qux CDATA #IMPLIED>
+<!ATTLIST bar foo:qux CDATA #IMPLIED>
+<!ELEMENT foo:bar EMPTY>
+<!ATTLIST foo:bar xmlns:foo CDATA #IMPLIED>
+<!ATTLIST foo:bar xmlns CDATA #IMPLIED>
+<!ATTLIST foo:bar foo:baz CDATA #IMPLIED>
+<!ATTLIST foo:bar qux CDATA #IMPLIED>
+<!ATTLIST foo:bar foo:qux CDATA #IMPLIED>
+]>
+<x>
+    <bar
+        xmlns:foo="http://www.foo.com/"
+
+        foo:baz="baz"
+        qux="qux"/>
+
+
+    <bar
+        xmlns="http://www.foo.com/"
+        xmlns:foo="http://www.foo.com/"
+
+        foo:baz="baz"
+        qux="qux"/>
+
+
+    <bar
+        xmlns="http://www.foo.com/"
+        xmlns:foo="http://www.foo.com/"
+
+        foo:baz="baz"
+        foo:qux="qux"/>
+
+
+    <foo:bar
+        xmlns="http://www.foo.com/"
+        xmlns:foo="http://www.foo.com/"
+
+        foo:baz="baz"
+        qux="qux"/>
+
+
+    <foo:bar
+        xmlns=""
+        xmlns:foo="http://www.foo.com/"
+
+        foo:baz="baz"
+        foo:qux="qux"/>
+</x>

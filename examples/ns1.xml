@@ -1,0 +1,16 @@
+<?xml version="1.1"?>
+<!DOCTYPE x [
+<!ELEMENT x (n1:a,x?)>
+<!ATTLIST x xmlns:n1 CDATA #IMPLIED>
+<!ATTLIST x xmlns CDATA #IMPLIED>
+<!ELEMENT n1:a EMPTY>
+]>
+<x xmlns:n1="http://www.w3.org" xmlns="urn:foobar">
+	<n1:a/>               <!-- legal; the prefix n1 is bound to http://www.w3.org -->
+	<x xmlns:n1="">
+		<n1:a/>           <!-- illegal; the prefix n1 is not bound here -->
+		<x xmlns:n1="http://www.w3.org">
+			<n1:a/>       <!-- legal; the prefix n1 is bound again -->
+		</x>
+	</x>
+</x>

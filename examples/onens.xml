@@ -1,0 +1,5 @@
+<?xml version="1.1"?>
+<!DOCTYPE e [
+<!ELEMENT e EMPTY>
+<!ATTLIST e xmlns CDATA #IMPLIED>
+]><e xmlns="urn:def"/>
