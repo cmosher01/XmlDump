@@ -1,0 +1,19 @@
+<?xml version="1.1"?>
+<!DOCTYPE x [
+<!ELEMENT x (good*)>
+<!ATTLIST x xmlns CDATA #IMPLIED>
+<!ATTLIST x xmlns:n1 CDATA #IMPLIED>
+<!ELEMENT good EMPTY>
+<!ATTLIST good a CDATA #IMPLIED>
+<!ATTLIST good n1:a CDATA #IMPLIED>
+<!ATTLIST good b CDATA #IMPLIED>
+]>
+<!-- http://www.w3.org is bound to n1 and is the default -->
+<x
+    xmlns:n1="http://www.w3.org" 
+    xmlns="http://www.w3.org"
+>
+    <good a="" b=""/>
+    <!-- legal: -->
+    <good a="" n1:a=""/>
+</x>
