@@ -2,7 +2,6 @@ package nu.mine.mosher.xml;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
-import org.apache.xerces.jaxp.SAXParserFactoryImpl;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -24,9 +23,6 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 
 public class XmlDump {
-    private static final ClassLoader loader = XmlDump.class.getClassLoader();
-    private static final Class<? extends SAXParserFactory> classSaxParserFactory = SAXParserFactoryImpl.class;
-
     private static BufferedInputStream streamFromFileName(final String fileName) throws FileNotFoundException {
         return new BufferedInputStream(new FileInputStream(new File(fileName)));
     }
@@ -36,7 +32,7 @@ public class XmlDump {
     }
 
     private static SAXParserFactory createSaxParserFactory() throws SAXException, ParserConfigurationException {
-        final SAXParserFactory f = SAXParserFactory.newInstance(XmlDump.classSaxParserFactory.getName(), XmlDump.loader);
+        final SAXParserFactory f = SAXParserFactory.newInstance();
         f.setFeature("http://apache.org/xml/features/scanner/notify-char-refs", true);
         f.setFeature("http://apache.org/xml/features/scanner/notify-builtin-refs", true);
         f.setFeature("http://apache.org/xml/features/standard-uri-conformant", true);
